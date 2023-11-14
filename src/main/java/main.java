@@ -28,6 +28,7 @@ public class main implements locators {
 
 
     public int today() {
+
         WebElement today = wd.findElement(By.xpath(TODAY));
         int todayis = Integer.parseInt(today.getText());
         return todayis;

@@ -38,6 +38,7 @@ public class testing implements locators {
         Assert.assertFalse(ma.wd.findElement(By.xpath(BTNYALLA)).isEnabled());
     }
     @Test
+
     public void NegWrongDateTest() {
         ma.type("jer", By.xpath(LOCATORCITY));
         ma.click(By.xpath("//div[@class='pac-item'][2]"));

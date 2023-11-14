@@ -3,6 +3,7 @@ public interface locators {
 
 
     //*[@id="city"]
+
     String LOCATORCITY="//*[@id='city']";
     String LOCATORDATES="//*[@id='dates']";
     String BTNYALLA="//button[@type='submit']";
