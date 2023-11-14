@@ -14,6 +14,7 @@ public class main implements locators {
         wd.get("https://ilcarro.web.app/search");
         wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        wd.close();
     }
 
     public void type(String string, By locator) {
