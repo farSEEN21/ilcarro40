@@ -1,20 +1,27 @@
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class main implements locators {
 
-    WebDriver wd = new FirefoxDriver();
+    WebDriver wd = new ChromeDriver();
+//    WebDriver wd = new FirefoxDriver();
 
     public void init() {
         wd.get("https://ilcarro.web.app/search");
         wd.manage().window().maximize();
-        wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        wd.close();
+        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       // wd.close();
+
     }
 
     public void type(String string, By locator) {
@@ -69,7 +76,12 @@ public class main implements locators {
             System.out.println("Not correct data");
         }
     }
+public void waitElement(By locator){
+WebDriverWait wait=new WebDriverWait(wd, Duration.ofSeconds(500));
+    WebElement element= wd.findElement(locator);
+  wait.until(d->element.isDisplayed());
 
+}
 
 
 }

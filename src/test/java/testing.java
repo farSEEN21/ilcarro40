@@ -1,25 +1,30 @@
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class testing implements locators {
 
-    static main ma = new main();
+     main ma = new main();
 
 
     @BeforeTest
-    public static void start() {
+    public void start() {
         ma.init();
     }
 
 
     @Test
-    public void PositiveTest() {
+    public void PositiveTest()   {
+
+
+        ma.waitElement(By.xpath(LOCATORCITY));
+
         ma.type("jer", By.xpath(LOCATORCITY));
         ma.click(By.xpath("//div[@class='pac-item'][2]"));
         ma.click(By.xpath(LOCATORDATES));
         ma.selectday(17, 23);
+        ma.waitElement(By.xpath(BTNYALLA ));
         ma.submit();
         Assert.assertTrue(ma.wd.findElement(By.xpath("//*[@class='cars-container ng-star-inserted']")).getText().contains("408.7"));
     }
